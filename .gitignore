@@ -1,1 +1,2 @@
-.ipynb
+*.ipynb
+custom_nlp_model4/

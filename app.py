@@ -20,22 +20,10 @@ def read_csv(file_path):
     return products
 
 def spacy_result(query_doc, products):
-    # SpaCy modeli tarafından işlenmiş sorgudan önemli kelimeleri al
+    
     
 
-    # Ürünleri filtreleme
-    filtered_results = []
-    for product in products:
-        # Ürün başlığından önemli kelimeleri al
-        product_keywords = product["title"].lower()
-        print(f"product keywords: {product_keywords}")
-        # SpaCy modeli tarafından işlenmiş sorgu ve ürün başlığından alınan önemli kelimeleri karşılaştırma
-        # if query_keywords.intersection(product_keywords):
-        #     filtered_results.append(product)
-        #     print(f"product keywords: {product_keywords}")
-        #     print(f"product: {product}\n")
-
-    return filtered_results
+    
         
    
 @app.get("/", response_class=HTMLResponse)
@@ -62,5 +50,5 @@ async def search(request: Request, query: str):
 
     products = read_csv("karaca.csv")
     filtered_results = spacy_result(doc, products)
-
+    print(request)
     return templates.TemplateResponse("search_results.html", {"request": request, "results": filtered_results})
