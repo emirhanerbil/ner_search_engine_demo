@@ -20,6 +20,7 @@ def read_csv(file_path):
     return products
 
 def spacy_result(query_doc, products):
+    print("IMPLEMENT HERE!!")
     
     
 
