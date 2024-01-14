@@ -104,6 +104,7 @@ async def search(request: Request, query: str):
     for ent in doc.ents:
         results[ent.label_] = ent.text
 
+    print(results)
     filtered_results = spacy_result(results)
-
+    
     return templates.TemplateResponse("search_results.html", {"request": request, "results": filtered_results})
